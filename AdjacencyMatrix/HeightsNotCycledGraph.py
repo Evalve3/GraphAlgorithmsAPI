@@ -1,10 +1,9 @@
-from AdjacencyMatrixCheckers import CorrectAdjacencyMatrixChecker, CycledChecker
+from AdjacencyMatrix import AdjacencyMatrixCheckers
 from expections import CycledException, MatrixException
 
 
 class HeightsGraph:
     def __init__(self, matrix: list) -> None:
-        # выполняет шаг 0 в т.ч
         HeightsGraph.check_matrix(matrix)
         self.matrix: list = matrix
         for i in range(len(self)):
@@ -13,9 +12,9 @@ class HeightsGraph:
 
     @staticmethod
     def check_matrix(matrix):
-        if not CorrectAdjacencyMatrixChecker(matrix).check():
+        if not AdjacencyMatrixCheckers.CorrectAdjacencyMatrixChecker(matrix).check():
             raise MatrixException("Матрица не является матрицей смежности")
-        if CycledChecker(matrix).check():
+        if AdjacencyMatrixCheckers.CycledChecker(matrix).check():
             raise CycledException("Граф цикличен")
 
     def __check_column(self, column_number: int) -> bool:

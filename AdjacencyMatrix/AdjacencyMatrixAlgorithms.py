@@ -1,10 +1,11 @@
-from HeightsNotCycledGraph import HeightsGraph
+from AdjacencyMatrix import HeightsNotCycledGraph
+
 from expections import GraphException
 
 
 def calc_heights_in_graph(matrix: list):
     try:
-        graph = HeightsGraph(matrix)
+        graph = HeightsNotCycledGraph.HeightsGraph(matrix)
         graph.calc_all_heights()
         return {'matrix': graph.matrix}
     except GraphException as e:

@@ -1,6 +1,6 @@
 from flask import Flask
 from flask_restful import Api, Resource, reqparse
-from AdjacencyMatrixAlgorithms import calc_heights_in_graph
+from AdjacencyMatrix import AdjacencyMatrixAlgorithms
 
 app = Flask(__name__)
 api = Api(app)
@@ -11,7 +11,7 @@ def is_matrix(matrix):
 
 
 class Algorithms(Resource):
-    algorithms_dict = {'heights': calc_heights_in_graph}
+    algorithms_dict = {'heights': AdjacencyMatrixAlgorithms.calc_heights_in_graph}
 
     def get(self, algorithm: str):
         parser = reqparse.RequestParser()
@@ -19,12 +19,12 @@ class Algorithms(Resource):
         matrix = (parser.parse_args()['matrix'])
 
         if not is_matrix(matrix):
-            return {"error": "Is not matrix"}, 400
+            return {"error": "Это не матрица"}, 400
 
         if algorithm in self.algorithms_dict:
             return self.algorithms_dict[algorithm](matrix)
 
-        return {"error": "Algorithm not found",
+        return {"error": "Такого алгоритма нет",
                 "algorithm list": str([key for key in self.algorithms_dict.keys()])}, 404
 
 
