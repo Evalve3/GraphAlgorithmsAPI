@@ -1,20 +1,22 @@
 from AdjacencyMatrix import AdjacencyMatrixCheckers
 from expections import CycledException, MatrixException
+from Algorithm import Algorithm
 
 
-class HeightsGraph:
+class HeightsGraph(Algorithm):
+    def do_algorithm(self, *args, **kwargs):
+        self.calc_all_heights()
+
     def __init__(self, matrix: list) -> None:
-        HeightsGraph.check_matrix(matrix)
-        self.matrix: list = matrix
+        super().__init__(matrix)
         for i in range(len(self)):
             self.matrix[i].insert(0, None)
         self.marked_lines = set()
 
-    @staticmethod
-    def check_matrix(matrix):
-        if not AdjacencyMatrixCheckers.CorrectAdjacencyMatrixChecker(matrix).check():
+    def check_matrix(self):
+        if not AdjacencyMatrixCheckers.CorrectAdjacencyMatrixChecker(self.matrix).check():
             raise MatrixException("Матрица не является матрицей смежности")
-        if AdjacencyMatrixCheckers.CycledChecker(matrix).check():
+        if AdjacencyMatrixCheckers.CycledChecker(self.matrix).check():
             raise CycledException("Граф цикличен")
 
     def __check_column(self, column_number: int) -> bool:
@@ -59,6 +61,7 @@ class HeightsGraph:
         return not all(add_column)
 
     def print_matrix(self) -> None:
+        # debug
         print()
         for i in range(len(self)):
             for j in range(len(self)):

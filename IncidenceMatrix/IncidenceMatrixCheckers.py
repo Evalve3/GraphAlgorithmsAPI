@@ -54,3 +54,15 @@ class CycledChecker(Checker):
                 if self.matrix[i][column]:
                     return i
         return 0
+
+
+class CorrectMatrixChecker(Checker):
+    def check(self) -> bool:
+        try:
+            assert self.is_num_matrix()
+            return True
+        except AssertionError:
+            return False
+
+    def is_num_matrix(self):
+        return all([all(map(lambda x: isinstance(x, int) or isinstance(x, float), m)) for m in self.matrix])
