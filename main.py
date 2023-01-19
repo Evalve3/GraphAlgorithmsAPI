@@ -1,6 +1,7 @@
 from flask import Flask
 from flask_restful import Api, Resource, reqparse
-from AdjacencyMatrix import AdjacencyMatrixAlgorithms
+from AdjacencyMatrix import HeightsNotCycledGraph
+from IncidenceMatrix import FindOrMakeChane
 
 app = Flask(__name__)
 api = Api(app)
@@ -11,7 +12,8 @@ def is_matrix(matrix):
 
 
 class Algorithms(Resource):
-    algorithms_dict = {'heights': AdjacencyMatrixAlgorithms.calc_heights_in_graph}
+    algorithms_dict = {'heights': HeightsNotCycledGraph.HeightsGraph.get_request,
+                       'chainGraph': FindOrMakeChane.ChaneCreate.get_request}
 
     def get(self, algorithm: str):
         parser = reqparse.RequestParser()
