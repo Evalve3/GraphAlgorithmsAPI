@@ -1,6 +1,6 @@
-from IncidenceMatrix import IncidenceMatrixCheckers
-from Algorithm import Algorithm
-from expections import MatrixException
+from ApiE.IncidenceMatrix import IncidenceMatrixCheckers
+from ApiE.Algorithm import Algorithm
+from ApiE.expections import MatrixException
 
 
 class ChaneCreate(Algorithm):

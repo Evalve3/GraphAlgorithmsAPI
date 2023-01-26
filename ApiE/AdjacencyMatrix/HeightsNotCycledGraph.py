@@ -1,6 +1,6 @@
-from AdjacencyMatrix import AdjacencyMatrixCheckers
-from expections import CycledException, MatrixException
-from Algorithm import Algorithm
+from ApiE.AdjacencyMatrix import AdjacencyMatrixCheckers
+from ApiE.expections import CycledException, MatrixException
+from ApiE.Algorithm import Algorithm
 
 
 class HeightsGraph(Algorithm):

@@ -31,5 +31,6 @@ class Algorithms(Resource):
 
 
 api.add_resource(Algorithms, "/algorithms/<string:algorithm>")
+app.run()
 if __name__ == '__main__':
     app.run(debug=True)
