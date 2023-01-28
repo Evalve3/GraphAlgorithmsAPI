@@ -1,4 +1,5 @@
 # GraphAlgorithmsAPI
+Доступно по адрессу http://evalve.space//algorithms
 API принимает граф в виде матрицы и выполняет с ней заданный алгоритм
 localhost/algorithms/<string:algorithm>
 
@@ -23,7 +24,7 @@ localhost/algorithms/<string:algorithm>
          [0, 0, 0, 0, 0, 0, 0, 0, 1, 0],
          [0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
          [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]]
-    requests.get("http://127.0.0.1:5000//algorithms/heights", json={"matrix": m})
+    requests.get("http://evalve.space//algorithms/heights", json={"matrix": m})
     #   out {'matrix': m}
         # в данном случае m
         # [['0', 0, 0, 0, 1, 0, 0, 0, 0, 0, 0],
@@ -63,7 +64,7 @@ chainGraph
       [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1]
     ]
 
-    r = requests.get("http://127.0.0.1:5000//algorithms/chainGraph", json={"matrix": m})
+    r = requests.get("http://evalve.space//algorithms/chainGraph", json={"matrix": m})
    
     # out {'matrix': m}
     # m:
